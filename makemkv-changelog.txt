@@ -1,5 +1,10 @@
 Revision history
 
+MakeMKV v1.9.10 ( 17.4.2016 )
+
+    Added support for AACS v60
+    Small miscellaneous improvements and bugfixes
+
 MakeMKV v1.9.9 ( 17.1.2016 )
 
     Added support for AACS v58
