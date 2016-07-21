@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.10.0 ( 15.7.2016 )
+
+    Added support for AACS v61
+    Initial support for BD-Java discs. For now mostly old titles are supported, and only when opening the original disc (not a backup).
+    Further improved handling for BDAV discs with mastering errors
+    Bug fixes:
+        When making a full-disc backup, MakeMKV could incorrectly skip some BD-J related files, preventing future BD-J emulation from the produced backup.
+
 MakeMKV v1.9.10 ( 17.4.2016 )
 
     Added support for AACS v60

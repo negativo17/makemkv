@@ -12,7 +12,7 @@
 
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
-Version:        1.9.10
+Version:        1.10.0
 Release:        1%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
@@ -138,6 +138,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Thu Jul 21 2016 Simone Caronni <negativo17@gmail.com> - 1.10.0-1
+- Update to 1.10.0.
+
 * Tue Apr 19 2016 Simone Caronni <negativo17@gmail.com> - 1.9.10-1
 - Update to 1.9.10.
 
