@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.10.1 ( 10.8.2016 )
+
+    Improved support for BD-Java discs. Still works reliably only when opening the original disc or encrypted backup (not a decrypted backup).
+    Added support for DD+ dependent streams, previously DD+ 7.1 extension streams were incorrectly identified as independent 4.0 audio
+    MakeMKV now saves additional metadata information when making a full-disc backup, to preserve all BD-Java related info
+    Bug fixes:
+        Mac OS X: Program could hang in "Please install Java" dialog, even if Java was installed
+
 MakeMKV v1.10.0 ( 15.7.2016 )
 
     Added support for AACS v61
