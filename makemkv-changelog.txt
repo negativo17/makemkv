@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.10.2 ( 11.9.2016 )
+
+    Added support for AACS v62
+    Improved support for BD-Java discs
+    Small user interface improvements
+    Bug fixes:
+        The 3D left/right MVC view information was not preserved correctly when creating 3D MKV file
+
 MakeMKV v1.10.1 ( 10.8.2016 )
 
     Improved support for BD-Java discs. Still works reliably only when opening the original disc or encrypted backup (not a decrypted backup).
