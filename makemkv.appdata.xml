@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>makemkv.desktop</id>
+  <name>MakeMKV</name>
+  <summary>Blu-ray and DVD decrypter and transcoder</summary>
+  <description>
+    <p>
+      MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere. MakeMKV is a format converter, otherwise called "transcoder". It converts the video clips from proprietary (and usually encrypted) disc into a set of MKV files, preserving most information but not changing it in any way. The MKV format can store multiple video/audio tracks with all meta-information and preserve chapters.
+    </p>
+    <p>
+      There are many players that can play MKV files nearly on all platforms, and there are tools to convert MKV files to many formats, including DVD and Blu-ray discs. Additionally MakeMKV can instantly stream decrypted video without intermediate conversion to wide range of players, so you may watch Blu-ray and DVD discs with your favorite player on your favorite OS or on your favorite device.
+    </p>
+    <ul>
+      <li>Reads DVD and Blu-ray discs</li>
+      <li>Reads Blu-ray discs protected with latest versions of AACS and BD+</li>
+      <li>Preserves all video and audio tracks, including HD audio</li>
+      <li>Preserves chapters information</li>
+      <li>Preserves all meta-information (track language, audio type)</li>
+      <li>Fast conversion - converts as fast as your drive can read data</li>
+      <li>No additional software is required for conversion or decryption</li>
+      <li>Available for Windows, Mac OS X and Linux</li>
+      <li>Functionality to open DVD discs is free and will always stay free</li>
+      <li>All features (including Blu-ray decryption and processing) are free during BETA</li>
+    </ul>
+  </description>
+  <translation/>
+  <url type="homepage">http://makemkv.com/</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <developer_name>GuinpinSoft inc</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The makemkv main window</caption>
+      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-0.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Analyzing Blu-ray disc</caption>
+      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-1.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Content selection for backup</caption>
+      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-2.png</image>
+    </screenshot>
+  </screenshots>
+  <keywords>
+    <keyword>MKV</keyword>
+    <keyword>Blu-ray</keyword>
+    <keyword>DVD</keyword>
+    <keyword>Rip</keyword>
+    <keyword>AACS</keyword>
+    <keyword>BD+</keyword>
+    <keyword>BD</keyword>
+    <keyword>BD-J</keyword>
+    <keyword>DD+</keyword>
+    <keyword>DTS</keyword>
+    <keyword>BDAV</keyword>
+  </keywords>
+  <update_contact>negativo17@gmail.com</update_contact>
+</component>
