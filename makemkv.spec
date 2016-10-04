@@ -139,7 +139,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_bindir}/makemkvcon
 %{_datadir}/MakeMKV
 %if 0%{?fedora} >= 25
-%{_datadir}/appdata/spotify.appdata.xml
+%{_datadir}/appdata/%{name}.appdata.xml
 %endif
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
