@@ -1,5 +1,14 @@
 Revision history
 
+MakeMKV v1.10.3 ( 11.12.2016 )
+
+    Added support for DVD disc with broken VTS IFO files (used as structure protection)
+    Improved support for BD-Java discs
+    Updated BD+ engine
+    Small miscellaneous improvements
+    Bug fixes:
+        "Auto" destination path was calculated incorrectly in 1.10.2
+
 MakeMKV v1.10.2 ( 11.9.2016 )
 
     Added support for AACS v62
