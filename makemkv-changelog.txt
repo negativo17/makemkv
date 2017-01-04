@@ -1,5 +1,11 @@
 Revision history
 
+MakeMKV v1.10.4 ( 11.12.2016 )
+
+    Bug fixes:
+        Program produced damaged MKV files if source was a 3D Blu-ray disc
+        Fixed various compilation issues for OSS code
+
 MakeMKV v1.10.3 ( 11.12.2016 )
 
     Added support for DVD disc with broken VTS IFO files (used as structure protection)
