@@ -32,8 +32,8 @@ BuildRequires:  expat-devel
 #BuildRequires:  libmatroska-devel
 #BuildRequires:  libmkv-devel
 BuildRequires:	openssl-devel
-BuildRequires:  pkgconfig(libavcodec)
-BuildRequires:  pkgconfig(libavutil)
+BuildRequires:  pkgconfig(libavcodec) >= 57
+BuildRequires:  pkgconfig(libavutil) >= 55
 BuildRequires:	qt4-devel
 
 Requires:       hicolor-icon-theme
@@ -156,6 +156,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %changelog
 * Wed Jan 04 2017 Simone Caronni <negativo17@gmail.com> - 1.10.4-1
 - Update to 1.10.4.
+- Make sure FFmpeg compatibility libraries are not selected for building.
 
 * Mon Dec 12 2016 Simone Caronni <negativo17@gmail.com> - 1.10.3-1
 - Update to 1.10.3.
