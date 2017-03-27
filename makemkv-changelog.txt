@@ -1,5 +1,16 @@
 Revision history
 
+MakeMKV v1.10.5 ( 25.03.2016 )
+
+    Improved handling for DVD discs with mastering errors
+    Better track AV sync management, especially for badly mastered discs
+    Small miscellaneous improvements
+    Bug fixes:
+        Program could crash randomly at the end of conversion
+        Opening HD-DVD disc with AC3/E-AC3 audio caused program to hang
+        Support for some BDAV discs was accidentally broken in 1.10.3
+        Fixed various build issues for OSS code
+
 MakeMKV v1.10.4 ( 11.12.2016 )
 
     Bug fixes:
