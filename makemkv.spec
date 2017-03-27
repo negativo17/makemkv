@@ -12,7 +12,7 @@
 
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
-Version:        1.10.4
+Version:        1.10.5
 Release:        1%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
@@ -22,8 +22,6 @@ Source0:        http://www.%{name}.com/download/%{name}-oss-%{version}.tar.gz
 Source1:        http://www.%{name}.com/download/%{name}-bin-%{version}.tar.gz
 Source2:        %{name}-changelog.txt
 Source3:        %{name}.appdata.xml
-
-Patch0:         %{name}-oss-no-strip.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
@@ -68,9 +66,6 @@ This package contains the DTS decoder command line tool.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -b 0 -b 1
-pushd %{name}-oss-%{version}
-%patch0 -p1
-popd
 cp %{SOURCE2} .
 
 %build
@@ -79,7 +74,7 @@ mkdir -p %{name}-bin-%{version}/tmp
 echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
 cd %{name}-oss-%{version}
 export CFLAGS="%{optflags} -D __STDC_FORMAT_MACROS"
-%configure
+%configure --enable-debug
 make %{?_smp_mflags}
 
 %install
@@ -154,6 +149,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Mon Mar 27 2017 Simone Caronni <negativo17@gmail.com> - 1.10.5-1
+- Update to 1.10.5, no-strip patch no longer required.
+
 * Wed Jan 04 2017 Simone Caronni <negativo17@gmail.com> - 1.10.4-1
 - Update to 1.10.4.
 - Make sure FFmpeg compatibility libraries are not selected for building.
