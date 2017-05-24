@@ -13,7 +13,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.10.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
@@ -73,7 +73,7 @@ cp %{SOURCE2} .
 mkdir -p %{name}-bin-%{version}/tmp
 echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
 cd %{name}-oss-%{version}
-export CFLAGS="%{optflags} -D __STDC_FORMAT_MACROS"
+export CFLAGS="%{optflags} -D__GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -D __STDC_FORMAT_MACROS"
 %configure --enable-debug
 make %{?_smp_mflags}
 
@@ -149,6 +149,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Wed May 24 2017 Simone Caronni <negativo17@gmail.com> - 1.10.5-2
+- Update compilation flags to support CentOS/RHEL 7.
+
 * Mon Mar 27 2017 Simone Caronni <negativo17@gmail.com> - 1.10.5-1
 - Update to 1.10.5, no-strip patch no longer required.
 
