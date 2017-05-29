@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.10.6 ( 25.05.2017 )
+
+    Added support for AACS v63
+    Updated BD+ engine
+    Small miscellaneous improvements
+    Bug fixes:
+        Program could hang with ASSERT on certain multi-segment titles
+
 MakeMKV v1.10.5 ( 25.03.2016 )
 
     Improved handling for DVD discs with mastering errors
