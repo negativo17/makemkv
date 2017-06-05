@@ -31,15 +31,15 @@
   <screenshots>
     <screenshot type="default">
       <caption>The makemkv main window</caption>
-      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-0.png</image>
+      <image type="source" width="1152" height="685">https://negativo17.org/appstream/makemkv-0.png</image>
     </screenshot>
     <screenshot>
       <caption>Analyzing Blu-ray disc</caption>
-      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-1.png</image>
+      <image type="source" width="1152" height="685">https://negativo17.org/appstream/makemkv-1.png</image>
     </screenshot>
     <screenshot>
       <caption>Content selection for backup</caption>
-      <image type="source" width="1152" height="685">http://negativo17.org/appstream/makemkv-2.png</image>
+      <image type="source" width="1152" height="685">https://negativo17.org/appstream/makemkv-2.png</image>
     </screenshot>
   </screenshots>
   <keywords>
