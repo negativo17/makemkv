@@ -13,7 +13,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.10.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
@@ -29,10 +29,15 @@ BuildRequires:  expat-devel
 #BuildRequires:  libebml-devel
 #BuildRequires:  libmatroska-devel
 #BuildRequires:  libmkv-devel
-BuildRequires:	openssl-devel
 BuildRequires:  pkgconfig(libavcodec) >= 57
 BuildRequires:  pkgconfig(libavutil) >= 55
 BuildRequires:	qt4-devel
+
+%if 0%{?fedora} >= 26 || 0%{?rhel} >= 8
+BuildRequires:      compat-openssl10-devel
+%else
+BuildRequires:      openssl-devel
+%endif
 
 Requires:       hicolor-icon-theme
 Requires:       mmdtsdec = %{version}-%{release}
@@ -149,6 +154,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Mon Jul 17 2017 Simone Caronni <negativo17@gmail.com> - 1.10.6-2
+- Use OpenSSL 1.0.x also on Fedora 26.
+
 * Mon May 29 2017 Simone Caronni <negativo17@gmail.com> - 1.10.6-1
 - Update to 1.10.6.
 
