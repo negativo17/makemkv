@@ -100,7 +100,7 @@ setenv LIBBDPLUS_PATH %{_libdir}/libmmbd.so.0
 setenv LIBAACS_PATH %{_libdir}/libmmbd.so.0
 EOF
 
-%if 0%{?fedora} >= 25
+%if 0%{?fedora}
 # Install AppData
 mkdir -p %{buildroot}%{_datadir}/appdata
 install -p -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/appdata/
@@ -111,14 +111,14 @@ rm -f %{buildroot}/%{_bindir}/mmdtsdec
 %endif
 
 %post
-%if 0%{?fedora} == 24 || 0%{?fedora} == 23 || 0%{?rhel} == 7
+%if 0%{?rhel} == 7
 /usr/bin/update-desktop-database &> /dev/null || :
 %endif
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 /sbin/ldconfig
 
 %postun
-%if 0%{?fedora} == 24 || 0%{?fedora} == 23 || 0%{?rhel} == 7
+%if 0%{?rhel} == 7
 /usr/bin/update-desktop-database &> /dev/null || :
 %endif
 if [ $1 -eq 0 ] ; then
@@ -138,7 +138,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_bindir}/makemkv
 %{_bindir}/makemkvcon
 %{_datadir}/MakeMKV
-%if 0%{?fedora} >= 25
+%if 0%{?fedora}
 %{_datadir}/appdata/%{name}.appdata.xml
 %endif
 %{_datadir}/applications/%{name}.desktop
