@@ -1,5 +1,12 @@
 Revision history
 
+MakeMKV v1.10.7 ( 4.9.2017 )
+
+    Improved support for discs with BD-Java protection
+    Updated BD+ engine
+    OS X: Fixed incompatibility with High Sierra
+    Small miscellaneous improvements
+
 MakeMKV v1.10.6 ( 25.05.2017 )
 
     Added support for AACS v63
