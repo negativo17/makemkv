@@ -10,10 +10,12 @@
 # mmdtsdec is a 32 bit only binary, so it is built only on i386 and required
 # on x86_64.
 
+%global _missing_build_ids_terminate_build 0
+
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.10.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
@@ -70,7 +72,7 @@ This package contains the DTS decoder command line tool.
 %endif
 
 %prep
-%setup -q -T -c -n %{name}-%{version} -b 0 -b 1
+%setup -q -T -c -n %{name}-%{version} -a 0 -a 1
 cp %{SOURCE2} .
 
 %build
@@ -131,8 +133,8 @@ fi
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
-%doc %{name}-bin-%{version}/src/eula_en_linux.txt
-%doc %{name}-oss-%{version}/License.txt
+%license %{name}-bin-%{version}/src/eula_en_linux.txt
+%license %{name}-oss-%{version}/License.txt
 %doc %{name}-changelog.txt
 %config(noreplace) %{_sysconfdir}/profile.d/%{name}.*sh
 %{_bindir}/makemkv
@@ -154,6 +156,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Thu Oct 26 2017 Simone Caronni <negativo17@gmail.com> - 1.10.7-2
+- Update RPM macros.
+
 * Sun Sep 10 2017 Simone Caronni <negativo17@gmail.com> - 1.10.7-1
 - Update to 1.10.7.
 
