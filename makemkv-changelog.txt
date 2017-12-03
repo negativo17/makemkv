@@ -1,5 +1,14 @@
 Revision history
 
+MakeMKV v1.10.8 ( 18.11.2017 )
+
+    Added support for (non-encrypted) UHD discs
+    Added support for HEVC in MKV files
+    Improved support for discs with BD-Java protection
+    Many small miscellaneous improvements
+    Bug fixes:
+        Restored compatibility with OS X 10.6
+
 MakeMKV v1.10.7 ( 4.9.2017 )
 
     Improved support for discs with BD-Java protection
