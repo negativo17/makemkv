@@ -1,5 +1,10 @@
 Revision history
 
+MakeMKV v1.10.10 ( 18.1.2018 )
+
+    Added support for AACS v64
+    Many bugfixes affecting stability
+
 MakeMKV v1.10.9 ( 8.1.2018 )
 
     Improved handling for DVD discs with mastering errors
