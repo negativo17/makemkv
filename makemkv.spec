@@ -81,7 +81,7 @@ This package contains the DTS decoder command line tool.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
-cp %{SOURCE2} %{SOURCE3} .
+cp %{SOURCE2} %{SOURCE4} .
 
 %build
 # Accept eula  
