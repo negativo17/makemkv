@@ -15,15 +15,16 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.10.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
 
 Source0:        http://www.%{name}.com/download/%{name}-oss-%{version}.tar.gz
 Source1:        http://www.%{name}.com/download/%{name}-bin-%{version}.tar.gz
-Source2:        %{name}-changelog.txt
+Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
+Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
@@ -35,14 +36,21 @@ BuildRequires:  pkgconfig(libavcodec) >= 57
 BuildRequires:  pkgconfig(libavutil) >= 55
 BuildRequires:	qt4-devel
 
-%if 0%{?fedora} >= 26 || 0%{?rhel} >= 8
-BuildRequires:      compat-openssl10-devel
+%if 0%{?fedora} || 0%{?rhel} >= 8
+BuildRequires:  compat-openssl10-devel
 %else
-BuildRequires:      openssl-devel
+BuildRequires:  openssl-devel
 %endif
 
 Requires:       hicolor-icon-theme
 Requires:       mmdtsdec = %{version}-%{release}
+
+# This makes sure you can open AACS and BD+ encrypted BluRays transparently.
+# See below in the install section.
+Provides:       libaacs%{?_isa} = %{version}-%{release}
+Provides:       libbdplus%{?_isa} = %{version}-%{release}
+Obsoletes:      libaacs%{?_isa} < %{version}-%{release}
+Obsoletes:      libbdplus%{?_isa} < %{version}-%{release}
 
 %description
 MakeMKV is your one-click solution to convert video that you own into free and
@@ -73,7 +81,7 @@ This package contains the DTS decoder command line tool.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
-cp %{SOURCE2} .
+cp %{SOURCE2} %{SOURCE3} .
 
 %build
 # Accept eula  
@@ -90,6 +98,8 @@ make -C %{name}-bin-%{version} install DESTDIR=%{buildroot} LIBDIR=%{_libdir}
 chmod 755 %{buildroot}%{_libdir}/lib*.so*
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
+# Transparenty enable AACS and BD+ decryption, libbluray supports overriding
+# libaacs and libbdplus.
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d/
 
 cat > %{buildroot}%{_sysconfdir}/profile.d/%{name}.sh <<EOF
@@ -135,7 +145,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %files
 %license %{name}-bin-%{version}/src/eula_en_linux.txt
 %license %{name}-oss-%{version}/License.txt
-%doc %{name}-changelog.txt
+%doc changelog.txt makemkvcon.txt
 %config(noreplace) %{_sysconfdir}/profile.d/%{name}.*sh
 %{_bindir}/makemkv
 %{_bindir}/makemkvcon
@@ -156,6 +166,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
+* Fri Jan 26 2018 Simone Caronni <negativo17@gmail.com> - 1.10.10-2
+- Provides libaacs/libbdplus for transparent decryption to libbluray.
+- Update docs.
+
 * Thu Jan 25 2018 Simone Caronni <negativo17@gmail.com> - 1.10.10-1
 - Update to 1.10.10.
 
