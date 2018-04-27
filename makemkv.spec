@@ -125,22 +125,24 @@ rm -f %{buildroot}/%{_bindir}/mmdtsdec
 %post
 %if 0%{?rhel} == 7
 /usr/bin/update-desktop-database &> /dev/null || :
-%endif
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-/sbin/ldconfig
+%endif
+%{?ldconfig}
 
 %postun
 %if 0%{?rhel} == 7
 /usr/bin/update-desktop-database &> /dev/null || :
-%endif
 if [ $1 -eq 0 ] ; then
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-/sbin/ldconfig
+%endif
+%{?ldconfig}
 
+%if 0%{?rhel} == 7
 %posttrans
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+%endif
 
 %files
 %license %{name}-bin-%{version}/src/eula_en_linux.txt
