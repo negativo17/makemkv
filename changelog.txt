@@ -1,5 +1,16 @@
 Revision history
 
+MakeMKV v1.12.2 ( 28.4.2018 )
+
+    Added support for AACS v65
+    Improved handling for DVD and BDAV discs with mastering errors
+    Added support for DTS LBR (XSA) decoding
+    Bug fixes:
+        Hashed keys could be skipped randomly
+        Linux: Fixed compilation issues with newer openssl and ffmpeg libraries
+        Windows: Fixed broken dialogs on Windows XP
+        Various stability fixes
+
 MakeMKV v1.12.0 ( 3.2.2018 )
 
     Internal bugfixes mostly for UHD issues
