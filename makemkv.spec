@@ -14,7 +14,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.12.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
@@ -24,6 +24,8 @@ Source1:        http://www.%{name}.com/download/%{name}-bin-%{version}.tar.gz
 Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
+
+Patch0:         %{name}-1.12.2-ffmpeg4.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
@@ -63,6 +65,7 @@ your favorite player on your favorite OS or on your favorite device.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
+%patch0
 cp %{SOURCE2} %{SOURCE4} .
 
 %build
@@ -140,6 +143,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Mon Apr 30 2018 Simone Caronni <negativo17@gmail.com> - 1.12.2-2
+- Add missing FFmpeg 4 patch.
+
 * Sat Apr 28 2018 Simone Caronni <negativo17@gmail.com> - 1.12.2-1
 - Update to 1.12.2.
 - 32 bit only package mmdtsdec is no more.
