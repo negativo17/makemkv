@@ -2,7 +2,6 @@
 #
 # makemkv-bin-%{version}/bin/amd64/makemkvcon
 # makemkv-bin-%{version}/bin/i386/makemkvcon
-# makemkv-bin-%{version}/bin/i386/mmdtsdec
 
 # This is a binary image inserted in the compiled GUI binary:
 # makemkv-oss-%{version}/makemkvgui/bin/image_data.bin
@@ -38,7 +37,6 @@ BuildRequires:  pkgconfig(libavutil) >= 55
 BuildRequires:	qt4-devel
 
 Requires:       hicolor-icon-theme
-Requires:       mmdtsdec = %{version}-%{release}
 
 # This makes sure you can open AACS and BD+ encrypted BluRays transparently.
 # See below in the install section.
@@ -46,6 +44,10 @@ Provides:       libaacs%{?_isa} = %{version}-%{release}
 Provides:       libbdplus%{?_isa} = %{version}-%{release}
 Obsoletes:      libaacs%{?_isa} < %{version}-%{release}
 Obsoletes:      libbdplus%{?_isa} < %{version}-%{release}
+
+# Remove next version
+Obsoletes:      mmdtsdec < %{version}-%{release}
+Provides:       mmdtsdec = %{version}-%{release}
 
 %description
 MakeMKV is your one-click solution to convert video that you own into free and
@@ -58,21 +60,6 @@ multiple video/audio tracks with all meta-information and preserve chapters.
 Additionally MakeMKV can instantly stream decrypted video without intermediate
 conversion to wide range of players, so you may watch Blu-ray and DVD discs with
 your favorite player on your favorite OS or on your favorite device.
-
-%ifarch %{ix86}
-%package -n mmdtsdec
-Summary:        MakeMKV DTS command line decoder
-
-%description -n mmdtsdec
-MakeMKV is your one-click solution to convert video that you own into free and
-patents-unencumbered format that can be played everywhere. MakeMKV is a format
-converter, otherwise called "transcoder".It converts the video clips from
-proprietary (and usually encrypted) disc into a set of MKV files, preserving
-most information but not changing it in any way. The MKV format can store
-multiple video/audio tracks with all meta-information and preserve chapters.
-
-This package contains the DTS decoder command line tool.
-%endif
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
@@ -111,10 +98,6 @@ EOF
 # Install AppData
 mkdir -p %{buildroot}%{_datadir}/appdata
 install -p -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/appdata/
-%endif
-
-%ifarch x86_64
-rm -f %{buildroot}/%{_bindir}/mmdtsdec
 %endif
 
 %post
@@ -156,15 +139,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_libdir}/libmakemkv.so.1
 %{_libdir}/libmmbd.so.0
 
-%ifarch %{ix86}
-%files -n mmdtsdec
-%doc %{name}-bin-%{version}/src/eula_en_linux.txt
-%{_bindir}/mmdtsdec
-%endif
-
 %changelog
 * Sat Apr 28 2018 Simone Caronni <negativo17@gmail.com> - 1.12.2-1
 - Update to 1.12.2.
+- 32 bit only package mmdtsdec is no more.
 
 * Thu Apr 26 2018 Simone Caronni <negativo17@gmail.com> - 1.12.0-2
 - Rebuild for FFMpeg update.
