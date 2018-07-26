@@ -1,5 +1,11 @@
 Revision history
 
+MakeMKV v1.12.3 ( 24.7.2018 )
+
+    Improved handling for discs with mastering errors
+    Improved handling for Japanese BDAV discs
+    Many small miscellaneous improvements
+
 MakeMKV v1.12.2 ( 28.4.2018 )
 
     Added support for AACS v65

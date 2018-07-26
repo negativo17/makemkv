@@ -13,8 +13,8 @@
 
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
-Version:        1.12.2
-Release:        2%{?dist}
+Version:        1.12.3
+Release:        1%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64
@@ -25,8 +25,6 @@ Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
 
-Patch0:         %{name}-1.12.2-ffmpeg4.patch
-
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
 # Todo: unbundle these
@@ -34,9 +32,13 @@ BuildRequires:  expat-devel
 #BuildRequires:  libmatroska-devel
 #BuildRequires:  libmkv-devel
 BuildRequires:  openssl-devel
-BuildRequires:  pkgconfig(libavcodec) >= 57
-BuildRequires:  pkgconfig(libavutil) >= 55
-BuildRequires:	qt4-devel
+# Specify minimum version so looks for latest FFMpeg
+BuildRequires:  pkgconfig(libavcodec) >= 58
+BuildRequires:  pkgconfig(libavutil) >= 56
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5DBus)
 
 Requires:       hicolor-icon-theme
 
@@ -65,16 +67,16 @@ your favorite player on your favorite OS or on your favorite device.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
-%patch0
 cp %{SOURCE2} %{SOURCE4} .
 
 %build
 # Accept eula  
 mkdir -p %{name}-bin-%{version}/tmp
 echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
+
 cd %{name}-oss-%{version}
 export CFLAGS="%{optflags} -D__GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -D __STDC_FORMAT_MACROS"
-%configure --enable-debug
+%configure --enable-debug --enable-allcodecs
 make %{?_smp_mflags}
 
 %install
@@ -143,6 +145,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Thu Jul 26 2018 Simone Caronni <negativo17@gmail.com> - 1.12.3-1
+- Update to 1.12.3.
+- Use QT5.
+- Enable all FFMpeg codecs.
+
 * Mon Apr 30 2018 Simone Caronni <negativo17@gmail.com> - 1.12.2-2
 - Add missing FFmpeg 4 patch.
 
