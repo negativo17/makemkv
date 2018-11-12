@@ -1,5 +1,35 @@
 Revision history
 
+MakeMKV v1.14.1 ( 9.11.2018 )
+
+    Bug fixes:
+        MakeMKV could crash during non-decrypted full disc backup
+        Some discs caused extensive reads and very slow operation at the start of MKV file creation
+
+MakeMKV v1.14.0 ( 5.11.2018 )
+
+    Added support for AACS v66
+    MakeMKV now extracts closed captions and saves them as text subtitles
+    New video processing engine, MakeMKV should be much more tolerant for MPEG files with errors (BDAV)
+    libmmbd: Added compatibility for latest libaacs API (Kodi no longer crashes)
+    Small miscellaneous improvements
+    Bug fixes for 1.12.3 regressions:
+        With some discs MKV creation failed with DBG_ASSERT or DEBUG_CODE 45045000
+        With 3D blu-ray invalid hashcheck errors were produced
+        Audio transcoding could fail with newer ffmpeg versions
+    Bug fixes:
+        MKV creation failed for BDAV discs authored in a certain way
+        Transcoding to AC3 displayed incorrectly with custom conversion profiles
+        MakeMKV GUI could crash on exit
+        MakeMKV could hang at the very end of MKV file creation in some rare cases
+        Linux: Fixed complilation errors with ffmpeg 4
+    Expert mode features:
+        Default output file name can be customized using template
+        VC1 video can be saved as raw elementary stream, without FOURCC AVI encapsulation
+    Obsolete features:
+        Removed UPNP streaming (Use VLC or Kodi with libmmbd instead)
+        Linux: Removed mmdtsdec/libdcadec (Use latest ffmpeg instead)
+
 MakeMKV v1.12.3 ( 24.7.2018 )
 
     Improved handling for discs with mastering errors
