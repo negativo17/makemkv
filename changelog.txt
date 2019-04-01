@@ -1,5 +1,10 @@
 Revision history
 
+MakeMKV v1.14.3 ( 10.3.2019 )
+
+    Added support for AACS v68
+    Many small miscellaneous improvements
+
 MakeMKV v1.14.2 ( 1.12.2018 )
 
   Support for BDAV AVCREC discs
