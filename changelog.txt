@@ -1,5 +1,10 @@
 Revision history
 
+MakeMKV v1.14.4 ( 6.6.2019 )
+
+    Added support for AACS v70 (for those poor souls without LibreDrive)
+    Many small improvements, program should work a bit faster now
+
 MakeMKV v1.14.3 ( 10.3.2019 )
 
     Added support for AACS v68
