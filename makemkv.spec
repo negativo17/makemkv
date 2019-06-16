@@ -50,10 +50,6 @@ Provides:       libbdplus%{?_isa} = %{version}-%{release}
 Obsoletes:      libaacs%{?_isa} < %{version}-%{release}
 Obsoletes:      libbdplus%{?_isa} < %{version}-%{release}
 
-# Remove next version
-Obsoletes:      mmdtsdec < %{version}-%{release}
-Provides:       mmdtsdec = %{version}-%{release}
-
 %description
 MakeMKV is your one-click solution to convert video that you own into free and
 patents-unencumbered format that can be played everywhere. MakeMKV is a format
@@ -84,7 +80,6 @@ make %{?_smp_mflags}
 make -C %{name}-oss-%{version} install DESTDIR=%{buildroot} LIBDIR=%{_libdir}
 make -C %{name}-bin-%{version} install DESTDIR=%{buildroot} LIBDIR=%{_libdir}
 chmod 755 %{buildroot}%{_libdir}/lib*.so*
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 # Transparenty enable AACS and BD+ decryption, libbluray supports overriding
 # libaacs and libbdplus.
@@ -105,6 +100,9 @@ EOF
 mkdir -p %{buildroot}%{_datadir}/appdata
 install -p -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/appdata/
 %endif
+
+%check
+desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
 %post
 %if 0%{?rhel} == 7
