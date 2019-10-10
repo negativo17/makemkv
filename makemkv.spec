@@ -48,8 +48,8 @@ Requires:       hicolor-icon-theme
 # See below in the install section.
 Provides:       libaacs%{?_isa} = %{version}-%{release}
 Provides:       libbdplus%{?_isa} = %{version}-%{release}
-Obsoletes:      libaacs%{?_isa} < %{version}-%{release}
-Obsoletes:      libbdplus%{?_isa} < %{version}-%{release}
+Obsoletes:      libaacs < %{version}-%{release}
+Obsoletes:      libbdplus < %{version}-%{release}
 
 %description
 MakeMKV is your one-click solution to convert video that you own into free and
