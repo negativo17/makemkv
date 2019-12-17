@@ -1,18 +1,29 @@
 Revision history
 
+MakeMKV v1.14.7 ( 4.12.2019 )
+
+  Bug fixes:
+    Better compatibility for decrypted AACS 2.1 FMTS files
+    Fixed variable expansion bug for default file name template
+
+MakeMKV v1.14.6 ( 2.12.2019 )
+
+  Added support for AACS 2.1
+  Many small bugfixes and improvements
+
 MakeMKV v1.14.5 ( 9.6.2019 )
 
-    Some small miscellaneous improvements
+  Some small miscellaneous improvements
 
 MakeMKV v1.14.4 ( 6.6.2019 )
 
-    Added support for AACS v70 (for those poor souls without LibreDrive)
-    Many small improvements, program should work a bit faster now
+  Added support for AACS v70 (for those poor souls without LibreDrive)
+  Many small improvements, program should work a bit faster now
 
 MakeMKV v1.14.3 ( 10.3.2019 )
 
-    Added support for AACS v68
-    Many small miscellaneous improvements
+  Added support for AACS v68
+  Many small miscellaneous improvements
 
 MakeMKV v1.14.2 ( 1.12.2018 )
 
