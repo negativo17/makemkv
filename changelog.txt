@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.15.0 ( 3.3.2020 )
+
+  User interface update
+  New preferences page for LibMMBD integation
+  Improved handling for discs with mastering errors
+  Better tolerance for corrupted input data
+  Many internal improvements
+
 MakeMKV v1.14.7 ( 4.12.2019 )
 
   Bug fixes:
