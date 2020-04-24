@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.15.1 ( 15.4.2020 )
+
+  Added support for AACS v76 (for those poor souls without LibreDrive)
+  Improved handling for discs with mastering errors
+  Many internal improvements and small bugfixes
+  Bug fixes:
+	For some HD audio streams frames were dropped incorrectly on segment boundaries
+
 MakeMKV v1.15.0 ( 3.3.2020 )
 
   User interface update
