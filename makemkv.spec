@@ -41,6 +41,12 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5DBus)
 BuildRequires:  zlib-devel
 
+%if 0%{?rhel} == 7
+BuildRequires:  devtoolset-8-gcc-c++
+%else
+BuildRequires:  gcc-c++
+%endif
+
 Requires:       ccextractor
 Requires:       hicolor-icon-theme
 
@@ -68,6 +74,10 @@ your favorite player on your favorite OS or on your favorite device.
 cp %{SOURCE2} %{SOURCE4} .
 
 %build
+%if 0%{?rhel} == 7
+. /opt/rh/devtoolset-8/enable
+%endif
+
 # Accept eula  
 mkdir -p %{name}-bin-%{version}/tmp
 echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
