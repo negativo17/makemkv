@@ -1,5 +1,13 @@
 Revision history
 
+MakeMKV v1.15.2 ( 20.7.2020 )
+
+  Massive internal rewrite, some improvements and small bugfixes
+  Muxer updated to the latest matroska specification
+  Advanced usage changes:
+	Sdftool included as standalone executable
+	Drive speed control option
+
 MakeMKV v1.15.1 ( 15.4.2020 )
 
   Added support for AACS v76 (for those poor souls without LibreDrive)
