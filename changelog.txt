@@ -1,5 +1,18 @@
 Revision history
 
+MakeMKV v1.15.3 ( 1.10.2020 )
+
+  Massive internal rewrite, many bugfixes
+  Improved handling for discs with mastering errors
+  Brand new network code, it is now possible to set proxy server in preferences, to access network over TOR/VPN
+  MakeMKV now can extract Dolby Vision metadata from elementary stream data and rebuild missing or invalid DV descriptors
+  Drive speed control update - MakeMKV now forces low speed when reading data around disc edges, working around firmware bugs
+  Bug fixes:
+    Program could hang or crash when converting files with many audio streams
+    On some multi-segment sources with LPCM audio program failed to produce MKV file
+    Program could crash when producing testdump or when conversion failed
+    On 32-bit x86 system program could run out of memory on big mult-segment sources
+
 MakeMKV v1.15.2 ( 20.7.2020 )
 
   Massive internal rewrite, some improvements and small bugfixes
