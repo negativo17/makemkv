@@ -1,5 +1,15 @@
 Revision history
 
+MakeMKV v1.15.4 ( 8.12.2020 )
+
+  Improved handling for discs with mastering errors
+  Many internal improvements and small bugfixes
+  Implemented seamless joining of TrueHD streams with overlapping frames based on Dominik Mydlil's idea (https://github.com/domyd/mlp)
+  MakeMKV now recognizes and converts double-track Dolby Vision MKV files
+  Bug fixes:
+    Program could fail when processing TrueHD streams from MKV file
+    DTS core was not extracted from DTS-HD streams (1.15.0 regression)
+
 MakeMKV v1.15.3 ( 1.10.2020 )
 
   Massive internal rewrite, many bugfixes
@@ -18,8 +28,8 @@ MakeMKV v1.15.2 ( 20.7.2020 )
   Massive internal rewrite, some improvements and small bugfixes
   Muxer updated to the latest matroska specification
   Advanced usage changes:
-	Sdftool included as standalone executable
-	Drive speed control option
+    Sdftool included as standalone executable
+    Drive speed control option
 
 MakeMKV v1.15.1 ( 15.4.2020 )
 
@@ -27,7 +37,7 @@ MakeMKV v1.15.1 ( 15.4.2020 )
   Improved handling for discs with mastering errors
   Many internal improvements and small bugfixes
   Bug fixes:
-	For some HD audio streams frames were dropped incorrectly on segment boundaries
+    For some HD audio streams frames were dropped incorrectly on segment boundaries
 
 MakeMKV v1.15.0 ( 3.3.2020 )
 
