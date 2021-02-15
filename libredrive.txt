@@ -1,0 +1,66 @@
+== LibreDrive firmware ==
+
+References:
+- https://www.makemkv.com/forum/viewtopic.php?f=19&t=18856
+- https://www.makemkv.com/forum/viewtopic.php?f=19&t=19113
+- https://www.makemkv.com/forum/viewtopic.php?f=16&t=19634
+- https://www.makemkv.com/forum/viewtopic.php?f=19&t=22689
+
+== Flashing firmware ==
+
+Download and unpack the latest MK firmware update package:
+
+  https://www.makemkv.com/download/mk-firmware-pack-20200720.zip
+
+The name of the device you need to use for flashing and configuring speed control is DRIVE_UNIQUE_ID, something like speed_HL-DT-ST_BD-RE_BU40N_1.00_211612201528_KNAS16L2381. You can get the DRIVE_UNIQUE_ID with the sdftool command. For example:
+
+  $ sdftool -l
+  Found 2 drives(s)
+  00: dev_21:4, /dev/sr0, /dev/sr0
+    ASUS_BW-16D1HT_3.10_211901041014_KLAK2TI4339
+
+  01: dev_21:5, /dev/sr1, /dev/sr1
+    HL-DT-ST_DVDRAM_GH20NS15_IL00_20080411123456_K5O86453951
+
+Than, to flash, the command is as follows for the ASUS drives:
+
+  sdftool -d <DRIVE_UNIQUE_ID> rawflash -i <firmware_file>
+
+And this for HL-DT-ST drives, which require encrypted firmware:
+
+  sdftool -d <DRIVE_UNIQUE_ID> rawflash enc -i <firmware_file>
+
+== LibreDrive speed control ==
+
+In an absence of a token, the default value for any media type or default setting is "0". Which means, that by default MakeMKV won't issue any speed-related commands at all, letting the drive choose its own speed.
+
+  +-------+---------------------+
+  | Media | Description         |
+  +-------+---------------------+
+  | 0     | Default (all types) |
+  | D1    | Single-layer DVD    |
+  | D2    | Double-layer DVD    |
+  | B1    | Single-layer BD     |
+  | B2    | Double-layer BD     |
+  | U1    | Single-layer UHD    |
+  | U2    | Double-layer UHD    |
+  | U3    | Triple-layer UHD    |
+  +-------+---------------------+
+
+  +---------+--------------------+
+  | Speed   | Description        |
+  +---------+--------------------+
+  | 0 or -  | No speed control   |
+  | 1 to 99 | Speed in megabytes |
+  +---------+--------------------+
+
+Then edit MakeMKV's config file (~/.MakeMKV/settings.conf) and add the speed control you want to enable:
+
+  speed_ASUS_BW-16D1HT_3.10_211901041014_KLAK2TI4339 = "0=99"
+
+Example speed strings:
+
+  "0=99" - Enable unlimited speed for all media. This is a good setting for WH16NS60.
+  "0=99;U1=-;U2=-;U3=-" - Enable unlimited speed for all media, except UHD. For UHD do not issue any speed control commands at all. This setting is for desktop "friendly" drives where changing speed instantly triggers the "sleep" bug for UHD media.
+  "B1=99;B2=99;U1=99;U2=99" - Just an example, enable max speed for BD and Single and Dual layer UHD, no speed control for DVD or Triple layer UHD. Same string may be written as "0=99;D1=-;D2=-;U3=-".
+  "0=8" - Set max speed to 8MiB for all media. This setting is useful for USB slim drives that run out of power when reading on fast speeds.
