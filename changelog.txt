@@ -2,6 +2,20 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.16.1 ( 4.3.2021 )
+
+  Bug fixes:
+    Mac OS: Program could fail to start
+    Mac OS: ccextractor helper app failed to start
+    Windows XP: Program failed to start
+  Some small improvements
+
+MakeMKV v1.16.0 ( 27.2.2021 )
+
+  ARM port, support for Apple silicon, Linux on ARM
+  MMMBD on OSX - support for applications with hardened runtime (Handbrake)
+  Some internal improvements and small bugfixes
+
 MakeMKV v1.15.4 ( 8.12.2020 )
 
   Improved handling for discs with mastering errors
