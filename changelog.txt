@@ -2,6 +2,19 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.16.3 ( 18.3.2021 )
+
+  Bug fixes:
+	Some non-English messages were displayed incorrectly
+	Opening DVD in manual mode from GUI was broken in 1.16.0
+	Some E-AC3 streams with surround channels were ignored when opening M2TS files
+
+MakeMKV v1.16.2 ( 17.3.2021 )
+
+  Bug fixes:
+	Mac OS: Program produced random errors when running on OS X 10.11 El Captain or earlier versions
+	Linux: ccextractor is now part of OSS package
+
 MakeMKV v1.16.1 ( 4.3.2021 )
 
   Bug fixes:
