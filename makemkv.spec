@@ -47,7 +47,6 @@ BuildRequires:  devtoolset-8-gcc-c++
 BuildRequires:  gcc-c++
 %endif
 
-Requires:       ccextractor
 Requires:       hicolor-icon-theme
 
 # This makes sure you can open AACS and BD+ encrypted BluRays transparently.
@@ -159,6 +158,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %changelog
 * Fri Mar 26 2021 Simone Caronni <negativo17@gmail.com> - 1.16.3-1
 - Update to 1.16.3.
+- Remove ccextractor dependency, mmccextr is a bundled stripped down version.
 
 * Mon Mar 15 2021 Simone Caronni <negativo17@gmail.com> - 1.16.1-1
 - Update to 1.16.1.
