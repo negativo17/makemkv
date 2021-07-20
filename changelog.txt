@@ -2,6 +2,17 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.16.4 ( 8.7.2021 )
+
+  Much better support for discs with Java playlist obfuscation
+  Any Java runtime version is now supported, including Java 16
+  Mac OS: Support for Mac OS 12.0 Monterey
+  Some small improvements
+  Bug fixes:
+    Program failed to recognize some AAC streams with exotic channel encoding
+    Picture dimensions were displayed incorrectly for some exotic HEVC streams
+    Conversion of some DVDs could fail at the very end of title
+
 MakeMKV v1.16.3 ( 18.3.2021 )
 
   Bug fixes:
