@@ -2,6 +2,13 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.16.5 ( 1.11.2021 )
+
+   Miscellaneous UI improvements
+   WinCDArb update, fixes occasional "no optical drives" error
+   LibMMBD stability improvements
+   Many small bug-fixes
+
 MakeMKV v1.16.4 ( 8.7.2021 )
 
   Much better support for discs with Java playlist obfuscation
