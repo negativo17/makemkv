@@ -4,15 +4,15 @@ Revision history
 
 MakeMKV v1.16.7 ( 27.2.2022 )
 
-    Improved handling for discs with mastering errors
-    Many internal improvements and small bugfixes
+  Improved handling for discs with mastering errors
+  Many internal improvements and small bugfixes
 
 MakeMKV v1.16.5 ( 1.11.2021 )
 
-   Miscellaneous UI improvements
-   WinCDArb update, fixes occasional "no optical drives" error
-   LibMMBD stability improvements
-   Many small bug-fixes
+  Miscellaneous UI improvements
+  WinCDArb update, fixes occasional "no optical drives" error
+  LibMMBD stability improvements
+  Many small bug-fixes
 
 MakeMKV v1.16.4 ( 8.7.2021 )
 
