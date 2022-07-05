@@ -2,6 +2,17 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.0 ( 27.6.2022 )
+
+    Improved handling for discs with mastering errors
+    A new, rewritten DVD engine - much better handling for discs with structure protection
+    Many internal improvements and small bugfixes
+    Notable Bug fixes:
+      Program failed to recognize some exotic USB drives
+      Program failed on some DVD streams recorded from sattelite feed (TiVO DVD)
+      Program could hang if internet connection wasn't available
+
+
 MakeMKV v1.16.7 ( 27.2.2022 )
 
   Improved handling for discs with mastering errors
