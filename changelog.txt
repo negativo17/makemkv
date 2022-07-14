@@ -2,6 +2,17 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.1 ( 13.7.2022 )
+
+    Small improvements and bugfixes
+    Bug fixes:
+      Program could hang when scanning certain protected DVD discs using CellWallk method
+      Some titles were truncated on DVDs with structure protection, when using CellWallk method
+      Small bugfixes
+    1.17.0 regressions:
+      On some UHD HEVC streams program spitted thousands of invalid "Corrupt" messages, appearing to hang
+      Program crashed decoding certain AC3 (DD) streams, usually during transcoding
+
 MakeMKV v1.17.0 ( 27.6.2022 )
 
     Improved handling for discs with mastering errors
