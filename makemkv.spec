@@ -6,9 +6,6 @@
 # This is a binary image inserted in the compiled GUI binary:
 # makemkv-oss-%{version}/makemkvgui/bin/image_data.bin
 
-# mmdtsdec is a 32 bit only binary, so it is built only on i386 and required
-# on x86_64.
-
 %global _missing_build_ids_terminate_build 0
 
 Summary:        DVD and Blu-ray to MKV converter and network streamer
@@ -24,13 +21,16 @@ Source1:        http://www.%{name}.com/download/%{name}-bin-%{version}.tar.gz
 Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
+Source5:        libredrive.txt
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
+BuildRequires:  gcc-c++
 # Todo: unbundle these
 #BuildRequires:  libebml-devel
 #BuildRequires:  libmatroska-devel
 #BuildRequires:  libmkv-devel
+BuildRequires:  libappstream-glib
 BuildRequires:  openssl-devel
 # Specify minimum version so looks for latest FFMpeg
 BuildRequires:  pkgconfig(libavcodec) >= 58
@@ -40,12 +40,6 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5DBus)
 BuildRequires:  zlib-devel
-
-%if 0%{?rhel} == 7
-BuildRequires:  devtoolset-8-gcc-c++
-%else
-BuildRequires:  gcc-c++
-%endif
 
 Requires:       hicolor-icon-theme
 
@@ -70,13 +64,9 @@ your favorite player on your favorite OS or on your favorite device.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
-cp %{SOURCE2} %{SOURCE4} .
+cp %{SOURCE2} %{SOURCE4} %{SOURCE5} .
 
 %build
-%if 0%{?rhel} == 7
-. /opt/rh/devtoolset-8/enable
-%endif
-
 # Accept eula  
 mkdir -p %{name}-bin-%{version}/tmp
 echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
@@ -84,11 +74,11 @@ echo "accepted" > %{name}-bin-%{version}/tmp/eula_accepted
 cd %{name}-oss-%{version}
 export CFLAGS="%{optflags} -D__GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -D __STDC_FORMAT_MACROS"
 %configure --enable-debug --enable-allcodecs
-make %{?_smp_mflags}
+%make_build
 
 %install
-make -C %{name}-oss-%{version} install DESTDIR=%{buildroot} LIBDIR=%{_libdir}
-make -C %{name}-bin-%{version} install DESTDIR=%{buildroot} LIBDIR=%{_libdir}
+%make_install LIBDIR=%{_libdir} -C %{name}-oss-%{version}
+%make_install LIBDIR=%{_libdir} -C %{name}-bin-%{version}
 chmod 755 %{buildroot}%{_libdir}/lib*.so*
 
 # Transparenty enable AACS and BD+ decryption, libbluray supports overriding
@@ -105,41 +95,17 @@ setenv LIBBDPLUS_PATH %{_libdir}/libmmbd.so.0
 setenv LIBAACS_PATH %{_libdir}/libmmbd.so.0
 EOF
 
-%if 0%{?fedora}
 # Install AppData
-mkdir -p %{buildroot}%{_datadir}/appdata
-install -p -m 0644 %{SOURCE3} %{buildroot}%{_datadir}/appdata/
-%endif
+install -p -m 0644 -D %{SOURCE3} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 %check
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
-
-%post
-%if 0%{?rhel} == 7
-/usr/bin/update-desktop-database &> /dev/null || :
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-%endif
-%{?ldconfig}
-
-%postun
-%if 0%{?rhel} == 7
-/usr/bin/update-desktop-database &> /dev/null || :
-if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-%endif
-%{?ldconfig}
-
-%if 0%{?rhel} == 7
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-%endif
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdata.xml
 
 %files
 %license %{name}-bin-%{version}/src/eula_en_linux.txt
 %license %{name}-oss-%{version}/License.txt
-%doc changelog.txt makemkvcon.txt
+%doc changelog.txt makemkvcon.txt libredrive.txt
 %config(noreplace) %{_sysconfdir}/profile.d/%{name}.*sh
 %{_bindir}/makemkv
 %{_bindir}/makemkvcon
@@ -147,9 +113,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_bindir}/mmgplsrv
 %{_bindir}/sdftool
 %{_datadir}/MakeMKV
-%if 0%{?fedora}
-%{_datadir}/appdata/%{name}.appdata.xml
-%endif
+%{_metainfodir}/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/libdriveio.so.0
@@ -159,6 +123,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %changelog
 * Sun Feb 05 2023 Simone Caronni <negativo17@gmail.com> - 1.17.3-1
 - Update to 1.17.3.
+- Clean up SPEC file.
 
 * Tue Nov 01 2022 Simone Caronni <negativo17@gmail.com> - 1.17.2-1
 - Update to 1.17.2.
