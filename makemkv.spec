@@ -11,7 +11,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.17.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64 aarch64 armv7hl
@@ -22,6 +22,8 @@ Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
 Source5:        libredrive.txt
+
+Patch0:         %{name}-ffmpeg6.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
@@ -64,6 +66,7 @@ your favorite player on your favorite OS or on your favorite device.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
+%patch -P 0
 cp %{SOURCE2} %{SOURCE4} %{SOURCE5} .
 
 %build
@@ -121,6 +124,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Tue Apr 11 2023 Simone Caronni <negativo17@gmail.com> - 1.17.3-2
+- Fix build with FFMpeg 6.x.
+
 * Sun Feb 05 2023 Simone Caronni <negativo17@gmail.com> - 1.17.3-1
 - Update to 1.17.3.
 - Clean up SPEC file.
