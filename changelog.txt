@@ -2,6 +2,13 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.4 (29.5.2023)
+
+  Added support for AACS v81
+  Small improvements and bugfixes
+  Notable bug fixes:
+    4K BDAV discs with 4K-only content could fail to open
+
 MakeMKV v1.17.3 (1.2.2023)
 
   Added support for 4K BDAV discs
@@ -36,7 +43,6 @@ MakeMKV v1.17.0 (27.6.2022)
     Program failed to recognize some exotic USB drives
     Program failed on some DVD streams recorded from sattelite feed (TiVO DVD)
     Program could hang if internet connection wasn't available
-
 
 MakeMKV v1.16.7 (27.2.2022)
 
