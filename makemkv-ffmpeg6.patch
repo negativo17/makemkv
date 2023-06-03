@@ -1,6 +1,6 @@
-diff -Naur makemkv-oss-1.17.3.old/libffabi/src/ffabi.c makemkv-oss-1.17.3/libffabi/src/ffabi.c
---- makemkv-oss-1.17.3.old/libffabi/src/ffabi.c	2023-04-11 12:43:16.779074232 +0200
-+++ makemkv-oss-1.17.3/libffabi/src/ffabi.c	2023-04-11 12:43:38.580475108 +0200
+diff -Naur makemkv-oss-1.17.4.old/libffabi/src/ffabi.c makemkv-oss-1.17.4/libffabi/src/ffabi.c
+--- makemkv-oss-1.17.4.old/libffabi/src/ffabi.c	2023-06-04 20:15:41.368824315 +0200
++++ makemkv-oss-1.17.4/libffabi/src/ffabi.c	2023-06-04 20:15:45.775905185 +0200
 @@ -478,7 +478,7 @@
  #else
      ctx->frame = av_frame_alloc();
