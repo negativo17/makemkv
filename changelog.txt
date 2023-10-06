@@ -2,6 +2,13 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.5 (25.9.2023)
+
+  Improved handling for discs with mastering errors
+  Fixed several bugs related to HD-DVD handling (just about time...)
+  Fixed Linux ARM64 executabe crashing on certain hardware configurations
+  Small improvements and bugfixes
+
 MakeMKV v1.17.4 (29.5.2023)
 
   Added support for AACS v81
