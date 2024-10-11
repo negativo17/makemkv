@@ -2,6 +2,13 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.8 (30.9.2024)
+
+  Improved handling for discs with mastering errors and with structure protection
+  Small improvements and bugfixes
+  Notable bug fixes:
+    Audio transcoding failed on Linux when built with recent ffmpeg
+
 MakeMKV v1.17.7 (15.5.2024)
 
   Version bump, no changes
