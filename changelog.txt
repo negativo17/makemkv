@@ -2,6 +2,11 @@ From: http://www.makemkv.com/download/
 
 Revision history
 
+MakeMKV v1.17.9 (1.2.2025)
+
+  Version bump, no changes
+  Updated translations
+
 MakeMKV v1.17.8 (30.9.2024)
 
   Improved handling for discs with mastering errors and with structure protection
