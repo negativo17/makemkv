@@ -10,7 +10,7 @@
 
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
-Version:        1.18.2
+Version:        1.18.3
 Release:        1%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
@@ -121,6 +121,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Wed Jan 28 2026 Simone Caronni <negativo17@gmail.com> - 1.18.3-1
+- Update to 1.18.3.
+- Trim changelog.
+
 * Wed Oct 15 2025 Simone Caronni <negativo17@gmail.com> - 1.18.2-1
 - Update to 1.18.2.
 
@@ -151,50 +155,3 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 * Sun Feb 05 2023 Simone Caronni <negativo17@gmail.com> - 1.17.3-1
 - Update to 1.17.3.
 - Clean up SPEC file.
-
-* Tue Nov 01 2022 Simone Caronni <negativo17@gmail.com> - 1.17.2-1
-- Update to 1.17.2.
-
-* Thu Jul 14 2022 Simone Caronni <negativo17@gmail.com> - 1.17.1-1
-- Update to 1.17.1.
-
-* Tue Jul 05 2022 Simone Caronni <negativo17@gmail.com> - 1.17.0-1
-- Update to 1.17.0.
-- Trim changelog.
-
-* Wed Apr 06 2022 Simone Caronni <negativo17@gmail.com> - 1.16.7-3
-- Rebuild for updated dependencies.
-
-* Wed Apr 06 2022 Simone Caronni <negativo17@gmail.com> - 1.16.7-2
-- Rebuild for updated dependencies.
-
-* Tue Mar 01 2022 Simone Caronni <negativo17@gmail.com> - 1.16.7-1
-- Update to 1.16.7.
-
-* Tue Nov 02 2021 Simone Caronni <negativo17@gmail.com> - 1.16.5-1
-- Update to 1.16.5.
-
-* Tue Jul 20 2021 Simone Caronni <negativo17@gmail.com> - 1.16.4-1
-- Update to 1.16.4.
-
-* Fri Mar 26 2021 Simone Caronni <negativo17@gmail.com> - 1.16.3-1
-- Update to 1.16.3.
-- Remove ccextractor dependency, mmccextr is a bundled stripped down version.
-
-* Mon Mar 15 2021 Simone Caronni <negativo17@gmail.com> - 1.16.1-1
-- Update to 1.16.1.
-
-* Thu Dec 17 2020 Simone Caronni <negativo17@gmail.com> - 1.15.4-1
-- Update to 1.15.4.
-
-* Mon Oct 12 2020 Simone Caronni <negativo17@gmail.com> - 1.15.3-1
-- Update to 1.15.3.
-
-* Mon Aug 17 2020 Simone Caronni <negativo17@gmail.com> - 1.15.2-1
-- Update to 1.15.2.
-
-* Fri Apr 24 2020 Simone Caronni <negativo17@gmail.com> - 1.15.1-1
-- Update to 1.15.1.
-
-* Sat Mar 07 2020 Simone Caronni <negativo17@gmail.com> - 1.15.0-1
-- Update to 1.15.0.
