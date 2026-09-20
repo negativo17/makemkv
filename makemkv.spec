@@ -11,7 +11,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        1.18.4
-Release:        2%{?dist}
+Release:        3%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64 aarch64 armv7hl
@@ -22,6 +22,8 @@ Source2:        changelog.txt
 Source3:        %{name}.appdata.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
 Source5:        libredrive.txt
+# https://aur.archlinux.org/cgit/aur.git/tree/ffmpeg9.patch?h=makemkv
+Patch0:         %{name}-ffmpeg9.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  expat-devel
@@ -64,6 +66,7 @@ your favorite player on your favorite OS or on your favorite device.
 
 %prep
 %setup -q -T -c -n %{name}-%{version} -a 0 -a 1
+%patch 0 -p0
 cp %{SOURCE2} %{SOURCE4} %{SOURCE5} .
 
 %build
@@ -121,6 +124,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Sun Sep 20 2026 Simone Caronni <negativo17@gmail.com> - 1.18.4-3
+- Rebuild for updated dependencies.
+
 * Sun Sep 20 2026 Simone Caronni <negativo17@gmail.com> - 1.18.4-2
 - Rebuild for updated dependencies.
 
