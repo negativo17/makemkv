@@ -11,7 +11,7 @@
 Summary:        DVD and Blu-ray to MKV converter and network streamer
 Name:           makemkv
 Version:        2.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GuinpinSoft inc and Mozilla Public License Version 1.1 and LGPLv2.1+
 URL:            http://www.%{name}.com/
 ExclusiveArch:  %{ix86} x86_64 aarch64 armv7hl
@@ -19,7 +19,7 @@ ExclusiveArch:  %{ix86} x86_64 aarch64 armv7hl
 Source0:        http://www.%{name}.com/download/%{name}-oss-%{version}.tar.gz
 Source1:        http://www.%{name}.com/download/%{name}-bin-%{version}.tar.gz
 Source2:        changelog.txt
-Source3:        %{name}.appdata.xml
+Source3:        %{name}.metainfo.xml
 Source4:        http://www.%{name}.com/developers/usage.txt#/%{name}con.txt
 Source5:        libredrive.txt
 # https://aur.archlinux.org/cgit/aur.git/tree/ffmpeg9.patch?h=makemkv
@@ -99,11 +99,11 @@ setenv LIBAACS_PATH %{_libdir}/libmmbd.so.0
 EOF
 
 # Install AppData
-install -p -m 0644 -D %{SOURCE3} %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+install -p -m 0644 -D %{SOURCE3} %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 %check
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.metainfo.xml
 
 %files
 %license %{name}-bin-%{version}/src/eula_en_linux.txt
@@ -116,7 +116,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 %{_bindir}/mmgplsrv
 %{_bindir}/sdftool
 %{_datadir}/MakeMKV
-%{_metainfodir}/%{name}.appdata.xml
+%{_metainfodir}/%{name}.metainfo.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_libdir}/libdriveio.so.0
@@ -124,6 +124,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{name}.appdat
 %{_libdir}/libmmbd.so.0
 
 %changelog
+* Fri Oct 02 2026 Simone Caronni <negativo17@gmail.com> - 2.0.0-2
+- Update AppStream metadata.
+
 * Sat Sep 26 2026 Simone Caronni <negativo17@gmail.com> - 2.0.0-1
 - Update to 2.0.0.
 
